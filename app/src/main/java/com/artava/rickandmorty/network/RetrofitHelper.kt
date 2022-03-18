@@ -1,4 +1,4 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

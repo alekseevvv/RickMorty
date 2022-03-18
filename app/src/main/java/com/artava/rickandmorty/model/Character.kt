@@ -1,4 +1,4 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.model
 
 import com.google.gson.annotations.SerializedName
 

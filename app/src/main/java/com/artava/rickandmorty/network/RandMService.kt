@@ -1,6 +1,6 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.network
 
-import retrofit2.Call
+import com.artava.rickandmorty.model.Character
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,4 +11,7 @@ interface RandMService {
     suspend fun getCharacterById(
         @Path("id") characterId: Int
     ): Response<Character>
+
+    @GET("character")
+    suspend fun getAllCharacter(): Response<List<Character>>
 }
