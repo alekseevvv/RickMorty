@@ -1,6 +1,7 @@
 package com.artava.rickandmorty
 
 import com.artava.rickandmorty.model.Character
+import com.artava.rickandmorty.model.CharacterList
 import com.artava.rickandmorty.network.RetrofitHelper
 
 class SharedRepository {
@@ -12,7 +13,7 @@ class SharedRepository {
         return null
     }
 
-    suspend fun getAllCharacter(): List<Character>?{
+    suspend fun getAllCharacter(): CharacterList?{
         val request = RetrofitHelper.apiClient.getAllCharacter()
         if (request.isSuccessful){
             return request.body()!!

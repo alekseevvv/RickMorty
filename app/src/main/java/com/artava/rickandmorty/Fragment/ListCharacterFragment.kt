@@ -1,18 +1,24 @@
 package com.artava.rickandmorty.Fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.artava.rickandmorty.ListCharacterViewModel
+import com.artava.rickandmorty.MyItemRecyclerViewAdapter
 import com.artava.rickandmorty.R
-import com.artava.rickandmorty.model.Character
+import com.artava.rickandmorty.placeholder.PlaceholderContent
 
 class ListCharacterFragment : Fragment() {
+    val viewModel: ListCharacterViewModel by lazy {
+        ViewModelProvider(this).get(ListCharacterViewModel::class.java)
+    }
 
-    private lateinit var viewModel: ListCharacterViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,16 +28,22 @@ class ListCharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var dataList : List<Character?>
-        viewModel = ViewModelProvider(this).get(ListCharacterViewModel::class.java)
+
         viewModel.listAllCharacter()
         viewModel.allCharacter.observe(viewLifecycleOwner){ responce ->
             if (responce == null){
                 return@observe
             }
-            dataList = responce
-            println(dataList[1]?.full_name)
+            val recycler = view?.findViewById<RecyclerView>(R.id.recyclerV)
+            recycler.layoutManager = LinearLayoutManager(this.requireContext())
+
+            recycler.adapter = responce.results?.let {
+                MyItemRecyclerViewAdapter(
+                    it
+                )
+            }
         }
+
     }
 
 }

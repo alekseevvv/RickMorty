@@ -2,7 +2,7 @@ package com.artava.rickandmorty
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.artava.rickandmorty.Fragment.ItemFragment
+import com.artava.rickandmorty.Fragment.CharacterDatailsFragment
 import com.artava.rickandmorty.Fragment.ListCharacterFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

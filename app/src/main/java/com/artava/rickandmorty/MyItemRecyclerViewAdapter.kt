@@ -8,13 +8,15 @@ import android.widget.TextView
 
 import com.artava.rickandmorty.placeholder.PlaceholderContent.PlaceholderItem
 import com.artava.rickandmorty.databinding.FragmentItemBinding
+import com.artava.rickandmorty.model.Character
+import com.artava.rickandmorty.model.CharacterList
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
  * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
+    private val values: List<Character>
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,8 +33,8 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.idView.text = item.id.toString()
+        holder.contentView.text = item.full_name
     }
 
     override fun getItemCount(): Int = values.size

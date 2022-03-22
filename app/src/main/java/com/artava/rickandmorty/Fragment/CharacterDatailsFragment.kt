@@ -1,4 +1,4 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.artava.rickandmorty.R
+import com.artava.rickandmorty.SharedViewModel
 import com.artava.rickandmorty.databinding.FragmentCharacterBinding
 import com.squareup.picasso.Picasso
 
