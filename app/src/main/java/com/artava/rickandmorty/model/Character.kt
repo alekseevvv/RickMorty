@@ -17,6 +17,9 @@ data class Character(
     val type: String?,
     val url: String?
 ) {
+    data class ListCharacter(
+        val listCharacter: List<Character>
+    )
 
     data class Location(
         val name: String?,

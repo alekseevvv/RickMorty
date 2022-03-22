@@ -20,4 +20,8 @@ class SharedViewModel: ViewModel() {
             _characterByIdLiveData.postValue(response)
         }
     }
+
+    var lst = MutableLiveData<ArrayList<Character?>>()
+    var newlist = arrayListOf<Character?>()
+
 }

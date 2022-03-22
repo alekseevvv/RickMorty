@@ -2,6 +2,8 @@ package com.artava.rickandmorty
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.artava.rickandmorty.Fragment.ItemFragment
+import com.artava.rickandmorty.Fragment.ListCharacterFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,20 +17,26 @@ class MainActivity : AppCompatActivity() {
             item ->
             when(item.itemId){
                 R.id.page_1 -> {
+                    // Respond to navigation item 1 click
+                    println("Str1")
                     supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, ListCharacterFragment())
                         .commit()
                     true
                 }
                 R.id.page_2 -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, LocationsFragment())
+                    // Respond to navigation item 2 click
+                    println("Str2")
+                  /*  supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, LocationsFragment())
                         .commit()
-
+*/
                     true
                 }
                 R.id.page_3 -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, EpisodesFragment())
+                    // Respond to navigation item 2 click
+                    println("Str3")
+                 /*   supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, EpisodesFragment())
                         .commit()
-
+*/
                     true
                 }
                 else -> false
