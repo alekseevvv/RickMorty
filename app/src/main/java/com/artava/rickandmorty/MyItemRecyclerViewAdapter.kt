@@ -1,22 +1,20 @@
 package com.artava.rickandmorty
 
+import android.annotation.SuppressLint
+import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-
-import com.artava.rickandmorty.placeholder.PlaceholderContent.PlaceholderItem
+import androidx.core.content.ContextCompat
 import com.artava.rickandmorty.databinding.FragmentItemBinding
 import com.artava.rickandmorty.model.Character
-import com.artava.rickandmorty.model.CharacterList
+import com.squareup.picasso.Picasso
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyItemRecyclerViewAdapter(
-    private val values: List<Character>
+    private val values: List<Character>,
+    private val context: Context
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,23 +26,35 @@ class MyItemRecyclerViewAdapter(
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id.toString()
-        holder.contentView.text = item.full_name
+        if (item.status == "unknown"){
+            holder.alive.setTextColor(ContextCompat.getColor(context, R.color.text_gray));
+        }
+        if (item.status == "Dead"){
+            holder.alive.setTextColor(ContextCompat.getColor(context, R.color.text_red));
+        }
+        if (item.status == "Alive") {
+            holder.alive.setTextColor(ContextCompat.getColor(context, R.color.text_green));
+        }
+        holder.alive.text = item.status
+        holder.name.text = item.full_name
+        holder.location.text = item.location?.name
+        Picasso.get().load(item.image).into(holder.picture)
     }
 
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.textView
-        val contentView: TextView = binding.textView
+        val alive: TextView = binding.txtAlive
+        val name: TextView = binding.txtName
+        val location: TextView = binding.txtLocation
+        val picture: ImageView = binding.imPicture
 
         override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+            return super.toString() + " '" + name.text + "'"
         }
     }
 

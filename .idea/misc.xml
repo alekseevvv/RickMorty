@@ -3,15 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/drawable/card_backgound.xml" value="0.1" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_character.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_episodes.xml" value="0.19722222222222222" />
-        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_item.xml" value="0.1984732824427481" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_item.xml" value="0.18435754189944134" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_item_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_list_character.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_list_character_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_locations.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/list_character_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/list_character_fragment.xml" value="0.18613138686131386" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/list_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>

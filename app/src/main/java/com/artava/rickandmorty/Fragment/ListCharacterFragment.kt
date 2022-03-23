@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.artava.rickandmorty.ListCharacterViewModel
 import com.artava.rickandmorty.MyItemRecyclerViewAdapter
 import com.artava.rickandmorty.R
-import com.artava.rickandmorty.placeholder.PlaceholderContent
 
 class ListCharacterFragment : Fragment() {
     val viewModel: ListCharacterViewModel by lazy {
@@ -35,11 +34,10 @@ class ListCharacterFragment : Fragment() {
                 return@observe
             }
             val recycler = view?.findViewById<RecyclerView>(R.id.recyclerV)
-            recycler.layoutManager = LinearLayoutManager(this.requireContext())
 
             recycler.adapter = responce.results?.let {
                 MyItemRecyclerViewAdapter(
-                    it
+                    it, requireContext()
                 )
             }
         }
