@@ -36,7 +36,7 @@ class CharacterDatailsFragment : Fragment() {
             binding.tvName.text = responce.full_name.toString()
             binding.tvAlive.text = responce.status
             binding.tvLocation.text = responce.location?.name
-            Picasso.get().load(responce.image).into(binding.imgIcon);
+            Picasso.get().load(responce.image).into(binding.imgIcon)
         }
     }
 }
