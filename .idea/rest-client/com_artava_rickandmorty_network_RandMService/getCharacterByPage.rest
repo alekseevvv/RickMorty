@@ -1,0 +1,5 @@
+GET
+{BASE_URL}/character/?page={page}
+
+
+

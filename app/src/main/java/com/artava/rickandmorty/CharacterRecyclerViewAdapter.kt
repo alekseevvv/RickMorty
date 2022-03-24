@@ -1,21 +1,21 @@
 package com.artava.rickandmorty
 
-import android.annotation.SuppressLint
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.artava.rickandmorty.databinding.FragmentItemBinding
 import com.artava.rickandmorty.model.Character
 import com.squareup.picasso.Picasso
 
-class MyItemRecyclerViewAdapter(
+class CharacterRecyclerViewAdapter(
     private val values: List<Character>,
-    private val context: Context
-) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
+    private val context: Context,
+) : RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
+    var onItemClick: ((Character) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -30,10 +30,10 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        if (item.status == "unknown"){
+        if (item.status == "unknown") {
             holder.alive.setTextColor(ContextCompat.getColor(context, R.color.text_gray));
         }
-        if (item.status == "Dead"){
+        if (item.status == "Dead") {
             holder.alive.setTextColor(ContextCompat.getColor(context, R.color.text_red));
         }
         if (item.status == "Alive") {
@@ -53,9 +53,10 @@ class MyItemRecyclerViewAdapter(
         val location: TextView = binding.txtLocation
         val picture: ImageView = binding.imPicture
 
-        override fun toString(): String {
-            return super.toString() + " '" + name.text + "'"
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(values[adapterPosition])
+            }
         }
     }
-
 }

@@ -5,7 +5,10 @@
       <map>
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/drawable/card_backgound.xml" value="0.1" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_character.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/episode_fragment.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/episode_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_character.xml" value="0.24452554744525548" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_episodes.xml" value="0.19722222222222222" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_item.xml" value="0.18435754189944134" />
         <entry key="..\:/Users/avva/AndroidStudioProjects/Moviesnetwork/app/src/main/res/layout/fragment_item_list.xml" value="0.25416666666666665" />

@@ -1,9 +1,10 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.artava.rickandmorty.SharedRepository
 import com.artava.rickandmorty.model.Character
 import kotlinx.coroutines.launch
 
@@ -20,8 +21,4 @@ class SharedViewModel: ViewModel() {
             _characterByIdLiveData.postValue(response)
         }
     }
-
-    var lst = MutableLiveData<ArrayList<Character?>>()
-    var newlist = arrayListOf<Character?>()
-
 }
