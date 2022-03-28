@@ -7,12 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artava.rickandmorty.databinding.FragmentItemBinding
+import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.Episode
 import com.squareup.picasso.Picasso
 
 class EpisodeRecyclerViewAdapter(
-    private val values: List<Episode>,
-    private val context: Context,
+    private val values: MutableList<Episode>,
 ) : RecyclerView.Adapter<EpisodeRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,6 +35,11 @@ class EpisodeRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int = values.size
+
+    fun updateList(listCharacter: List<Episode>){
+        values.addAll(listCharacter)
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val episode: TextView = binding.txtAlive

@@ -12,7 +12,7 @@ import com.artava.rickandmorty.model.Character
 import com.squareup.picasso.Picasso
 
 class CharacterRecyclerViewAdapter(
-    private val values: List<Character>,
+    private var values: MutableList<Character>,
     private val context: Context,
 ) : RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
     var onItemClick: ((Character) -> Unit)? = null
@@ -46,6 +46,11 @@ class CharacterRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int = values.size
+
+    fun updateList(listCharacter: List<Character>){
+        values.addAll(listCharacter)
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val alive: TextView = binding.txtAlive

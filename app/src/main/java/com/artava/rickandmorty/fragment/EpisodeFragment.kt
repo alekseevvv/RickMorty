@@ -35,36 +35,26 @@ class EpisodeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = EpisodeFragmentBinding.bind(view)
-        loadNewEpisode()
-
+        adapter = EpisodeRecyclerViewAdapter(totalList)
         recycler = binding.recyclerV
         recycler.layoutManager = LinearLayoutManager(this.requireContext())
+        recycler.adapter = adapter
+        viewModel.getEpisodeByPage(numPage)
+        viewModel.allEpisode.observe(viewLifecycleOwner) { responce ->
+            if (responce == null) {
+                return@observe
+            }
+            responce.results?.let { adapter.updateList(it) }
+
+        }
         recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
-                        numPage++
-                        loadNewEpisode()
+                    numPage++
+                    viewModel.getEpisodeByPage(numPage)
                 }
             }
         })
-        adapter = totalList.let {
-            EpisodeRecyclerViewAdapter(
-                it, requireContext(),
-            )
-        }
-        recycler.adapter = adapter
-    }
-
-    fun loadNewEpisode() {
-            viewModel.getEpisodeByPage(numPage)
-            viewModel.allEpisode.observe(viewLifecycleOwner) { responce ->
-
-                if (responce == null) {
-                    return@observe
-                }
-                totalList.addAll(responce.results!!)
-                adapter.notifyDataSetChanged()
-            }
     }
 }

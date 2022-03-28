@@ -13,13 +13,13 @@ import kotlinx.coroutines.launch
 class EpisodeViewModel : ViewModel() {
     private val repository = SharedRepository()
 
-    private val _allEpisode = MutableLiveData<EpisodeList>()
-    val allEpisode : LiveData<EpisodeList> = _allEpisode
+    private var _allEpisode = MutableLiveData<EpisodeList?>()
+    var allEpisode : LiveData<EpisodeList?> = _allEpisode
 
     fun getEpisodeByPage(page: Int){
         viewModelScope.launch {
             val response = repository.getEpisodeByPage(page)
-                _allEpisode.postValue(response!!)
+                _allEpisode.postValue(response)
         }
     }
 }
