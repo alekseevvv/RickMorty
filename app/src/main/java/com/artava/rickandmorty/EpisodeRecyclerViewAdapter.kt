@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.artava.rickandmorty.databinding.EpisodeItemBinding
 import com.artava.rickandmorty.databinding.FragmentItemBinding
 import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.Episode
@@ -18,7 +19,7 @@ class EpisodeRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragmentItemBinding.inflate(
+            EpisodeItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -41,10 +42,10 @@ class EpisodeRecyclerViewAdapter(
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val episode: TextView = binding.txtAlive
-        val name: TextView = binding.txtName
-        val date: TextView = binding.txtLocation
+    inner class ViewHolder(binding: EpisodeItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val episode: TextView = binding.txtEpisodeName
+        val name: TextView = binding.txtEpisode
+        val date: TextView = binding.txtDate
 
     }
 }
