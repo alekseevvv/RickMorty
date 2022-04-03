@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,6 +46,8 @@ class LocationsFragment : Fragment() {
             if (responce == null) {
                 return@observe
             }
+            binding.progressBar4.isVisible = false
+
             responce.results?.let { adapter.updateList(it) }
 
         }

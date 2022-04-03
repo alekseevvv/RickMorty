@@ -12,6 +12,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -43,5 +51,6 @@
             app:layoutManager="LinearLayoutManager"
             tools:context=".fragment.ListCharacterFragment"
             tools:listitem="@layout/fragment_item" />
+
     </LinearLayout>
 </layout>

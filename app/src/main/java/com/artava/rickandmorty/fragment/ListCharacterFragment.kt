@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.artava.rickandmorty.adapter.CharacterRecyclerViewAdapter
 import com.artava.rickandmorty.R
+import com.artava.rickandmorty.adapter.CharacterRecyclerViewAdapter
 import com.artava.rickandmorty.databinding.ListCharacterFragmentBinding
 import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.viewmodel.ListCharacterViewModel
@@ -34,6 +35,7 @@ class ListCharacterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = ListCharacterFragmentBinding.bind(view)
+
         adapter = CharacterRecyclerViewAdapter(totalList, requireContext())
         recycler = binding.recyclerV
         recycler.layoutManager = LinearLayoutManager(this.requireContext())
@@ -43,19 +45,21 @@ class ListCharacterFragment : Fragment() {
             if (responce == null) {
                 return@observe
             }
+            binding.progressBar.isVisible = false
             responce.results?.let { adapter.updateList(it) }
 
         }
 
-           adapter.onItemClick = { character ->
-               fragmentManager?.beginTransaction()
-                   ?.replace(
-                       R.id.rick_fragment,
-                       CharacterDatailsFragment.newInstance(character.id)
-                   )
-                   ?.addToBackStack(null)
-                   ?.commit()
-           }
+        adapter.onItemClick = { character ->
+            fragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.rick_fragment,
+                    CharacterDatailsFragment.newInstance(character.id)
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        }
+        
         recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -93,7 +97,4 @@ class ListCharacterFragment : Fragment() {
         }*/
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }

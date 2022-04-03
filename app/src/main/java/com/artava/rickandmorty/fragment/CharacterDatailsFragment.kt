@@ -1,16 +1,14 @@
 package com.artava.rickandmorty.fragment
 
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.artava.rickandmorty.R
-import com.artava.rickandmorty.viewmodel.SharedViewModel
 import com.artava.rickandmorty.databinding.FragmentCharacterBinding
+import com.artava.rickandmorty.viewmodel.SharedViewModel
 import com.squareup.picasso.Picasso
 
 class CharacterDatailsFragment : Fragment() {
@@ -27,6 +25,7 @@ class CharacterDatailsFragment : Fragment() {
             param1 = it.getInt("chId")
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +34,15 @@ class CharacterDatailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_character, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharacterBinding.bind(view)
-
+        binding.imBack.setOnClickListener {
+                parentFragmentManager.popBackStack()
+        }
         viewModel.refreshCharacter(param1!!)
-        viewModel.characterByIdLiveData.observe(viewLifecycleOwner){ responce ->
-            if (responce == null){
+        viewModel.characterByIdLiveData.observe(viewLifecycleOwner) { responce ->
+            if (responce == null) {
                 return@observe
             }
             binding.tvName.text = responce.full_name.toString()
@@ -60,9 +60,16 @@ class CharacterDatailsFragment : Fragment() {
             CharacterDatailsFragment().apply {
                 arguments = Bundle().apply {
                     if (param1 != null) {
-                        putInt("chId",param1)
+                        putInt("chId", param1)
                     }
                 }
             }
+    }
+
+    override fun onPause() {
+        //fragmentManager?.beginTransaction()?.remove(this)
+        println("remove ${this.id}")
+
+        super.onPause()
     }
 }
