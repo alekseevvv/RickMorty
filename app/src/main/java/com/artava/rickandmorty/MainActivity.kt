@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.artava.rickandmorty.fragment.EpisodeFragment
 import com.artava.rickandmorty.fragment.ListCharacterFragment
+import com.artava.rickandmorty.fragment.LocationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -11,40 +12,60 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var cur = 0
-        supportFragmentManager.beginTransaction()
+        var latest = 0
+        val fragmentManager = supportFragmentManager
+        fragmentManager.beginTransaction()
             .add(R.id.rick_fragment, ListCharacterFragment())
             .addToBackStack(null)
             .commit()
+
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.page_1 -> {
-                    cur = 0
-                    supportFragmentManager.beginTransaction()
-                        .add(R.id.rick_fragment, ListCharacterFragment())
-                        .commit()
-                    false
+                    if (cur != 0) {
+                        cur = 0
+                        fragmentManager.beginTransaction()
+                            .replace(R.id.rick_fragment, ListCharacterFragment())
+                            .addToBackStack(null)
+                            .commit()
+                        true
+                    } else
+                        true
+
                 }
                 R.id.page_2 -> {
-                    // Respond to navigation item 2 click
-                    println("Str2")
-                    /*  supportFragmentManager.beginTransaction().replace(R.id.rick_fragment, LocationsFragment())
-                          .commit()
-  */
-                    false
+                    if (cur != 1) {
+                        cur = 1
+                        fragmentManager.beginTransaction()
+                            .replace(R.id.rick_fragment, LocationsFragment())
+                            .addToBackStack(null)
+                            .commit()
+                        true
+                    } else
+                        true
                 }
                 R.id.page_3 -> {
-                    if (cur != 2){
+                    if (cur != 2) {
                         cur = 2
-                        supportFragmentManager.beginTransaction()
+                        fragmentManager.beginTransaction()
                             .replace(R.id.rick_fragment, EpisodeFragment())
+                            .addToBackStack(null)
                             .commit()
-                    }
 
-                    false
+                        true
+                    } else {
+                        true
+                    }
                 }
                 else -> false
             }
 
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+
     }
 }

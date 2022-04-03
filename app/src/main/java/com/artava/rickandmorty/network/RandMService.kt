@@ -1,9 +1,6 @@
 package com.artava.rickandmorty.network
 
-import com.artava.rickandmorty.model.Character
-import com.artava.rickandmorty.model.CharacterList
-import com.artava.rickandmorty.model.Episode
-import com.artava.rickandmorty.model.EpisodeList
+import com.artava.rickandmorty.model.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -33,4 +30,9 @@ interface RandMService {
     suspend fun getEpisodeByPage(
         @Query("page") page: Int
     ): Response<EpisodeList>
+
+    @GET("location/")
+    suspend fun getLocationByPage(
+        @Query("page") page: Int
+    ): Response<LocationList>
 }

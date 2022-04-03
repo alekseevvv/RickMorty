@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.artava.rickandmorty.EpisodeRecyclerViewAdapter
+import com.artava.rickandmorty.adapter.EpisodeRecyclerViewAdapter
 import com.artava.rickandmorty.R
 import com.artava.rickandmorty.databinding.EpisodeFragmentBinding
 import com.artava.rickandmorty.model.Episode

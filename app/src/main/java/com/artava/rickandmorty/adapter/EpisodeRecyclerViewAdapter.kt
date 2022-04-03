@@ -1,16 +1,11 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artava.rickandmorty.databinding.EpisodeItemBinding
-import com.artava.rickandmorty.databinding.FragmentItemBinding
-import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.Episode
-import com.squareup.picasso.Picasso
 
 class EpisodeRecyclerViewAdapter(
     private val values: MutableList<Episode>,

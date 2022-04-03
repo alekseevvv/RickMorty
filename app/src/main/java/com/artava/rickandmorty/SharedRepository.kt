@@ -2,8 +2,8 @@ package com.artava.rickandmorty
 
 import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.CharacterList
-import com.artava.rickandmorty.model.Episode
 import com.artava.rickandmorty.model.EpisodeList
+import com.artava.rickandmorty.model.LocationList
 import com.artava.rickandmorty.network.RetrofitHelper
 
 class SharedRepository {
@@ -41,6 +41,14 @@ class SharedRepository {
 
     suspend fun getEpisodeByPage(page: Int): EpisodeList?{
         val request = RetrofitHelper.apiClient.getEpisodeByPage(page)
+        if (request.isSuccessful){
+            return request.body()!!
+        }
+        return null
+    }
+
+    suspend fun getLocationByPage(page: Int): LocationList?{
+        val request = RetrofitHelper.apiClient.getLocationByPage(page)
         if (request.isSuccessful){
             return request.body()!!
         }

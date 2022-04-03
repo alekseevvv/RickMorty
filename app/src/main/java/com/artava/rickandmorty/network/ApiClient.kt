@@ -1,9 +1,6 @@
 package com.artava.rickandmorty.network
 
-import com.artava.rickandmorty.model.Character
-import com.artava.rickandmorty.model.CharacterList
-import com.artava.rickandmorty.model.Episode
-import com.artava.rickandmorty.model.EpisodeList
+import com.artava.rickandmorty.model.*
 import retrofit2.Response
 
 class ApiClient(private val ramS: RandMService) {
@@ -26,5 +23,9 @@ class ApiClient(private val ramS: RandMService) {
 
     suspend fun getEpisodeByPage(page: Int): Response<EpisodeList>{
         return ramS.getEpisodeByPage(page)
+    }
+
+    suspend fun getLocationByPage(page: Int): Response<LocationList>{
+        return ramS.getLocationByPage(page)
     }
 }

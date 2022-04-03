@@ -1,4 +1,4 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.artava.rickandmorty.R
 import com.artava.rickandmorty.databinding.FragmentItemBinding
 import com.artava.rickandmorty.model.Character
 import com.squareup.picasso.Picasso
