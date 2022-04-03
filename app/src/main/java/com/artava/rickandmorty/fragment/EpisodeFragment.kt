@@ -13,11 +13,11 @@ import com.artava.rickandmorty.adapter.EpisodeRecyclerViewAdapter
 import com.artava.rickandmorty.R
 import com.artava.rickandmorty.databinding.EpisodeFragmentBinding
 import com.artava.rickandmorty.model.Episode
-import com.artava.rickandmorty.viewmodel.EpisodeViewModel
+import com.artava.rickandmorty.viewmodel.SharedViewModel
 
 class EpisodeFragment : Fragment() {
-    val viewModel: EpisodeViewModel by lazy {
-        ViewModelProvider(this).get(EpisodeViewModel::class.java)
+    val viewModel: SharedViewModel by lazy {
+        ViewModelProvider(this).get(SharedViewModel::class.java)
     }
     var numPage = 1
     lateinit var recycler: RecyclerView

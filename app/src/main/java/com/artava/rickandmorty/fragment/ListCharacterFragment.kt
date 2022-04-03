@@ -13,11 +13,11 @@ import com.artava.rickandmorty.R
 import com.artava.rickandmorty.adapter.CharacterRecyclerViewAdapter
 import com.artava.rickandmorty.databinding.ListCharacterFragmentBinding
 import com.artava.rickandmorty.model.Character
-import com.artava.rickandmorty.viewmodel.ListCharacterViewModel
+import com.artava.rickandmorty.viewmodel.SharedViewModel
 
 class ListCharacterFragment : Fragment() {
-    val viewModel: ListCharacterViewModel by lazy {
-        ViewModelProvider(this).get(ListCharacterViewModel::class.java)
+    val viewModel: SharedViewModel by lazy {
+        ViewModelProvider(this).get(SharedViewModel::class.java)
     }
     var totalList = mutableListOf<Character>()
     lateinit var binding: ListCharacterFragmentBinding

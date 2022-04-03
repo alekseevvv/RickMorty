@@ -14,13 +14,14 @@ import com.artava.rickandmorty.adapter.LocationRecyclerViewAdapter
 import com.artava.rickandmorty.model.Location
 import com.artava.rickandmorty.databinding.FragmentLocationsBinding
 
-import com.artava.rickandmorty.viewmodel.LocationViewModel
+import com.artava.rickandmorty.viewmodel.SharedViewModel
 
 class LocationsFragment : Fragment() {
-    val viewModel: LocationViewModel by lazy {
-        ViewModelProvider(this).get(LocationViewModel::class.java)
+    val viewModel: SharedViewModel by lazy {
+        ViewModelProvider(this).get(SharedViewModel::class.java)
     }
     var numPage = 1
+    var end = false
     lateinit var recycler: RecyclerView
     lateinit var adapter: LocationRecyclerViewAdapter
     lateinit var binding: FragmentLocationsBinding
@@ -43,13 +44,11 @@ class LocationsFragment : Fragment() {
         recycler.adapter = adapter
         viewModel.getLocationByPage(numPage)
         viewModel.allLocation.observe(viewLifecycleOwner) { responce ->
+            binding.progressBar4.isVisible = false
             if (responce == null) {
                 return@observe
             }
-            binding.progressBar4.isVisible = false
-
-            responce.results?.let { adapter.updateList(it) }
-
+            responce.results.let { adapter.updateList(it) }
         }
         recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
