@@ -2,8 +2,10 @@ package com.artava.rickandmorty.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.artava.rickandmorty.R
 import com.artava.rickandmorty.databinding.EpisodeItemBinding
 import com.artava.rickandmorty.model.Episode
 
@@ -28,6 +30,7 @@ class EpisodeRecyclerViewAdapter(
         holder.episode.text = item.episode
         holder.name.text = item.name
         holder.date.text = item.air_date
+        holder.imgage.setImageResource(R.drawable.chapter)
     }
 
     override fun getItemCount(): Int = values.size
@@ -41,6 +44,7 @@ class EpisodeRecyclerViewAdapter(
         val episode: TextView = binding.txtEpisodeName
         val name: TextView = binding.txtEpisode
         val date: TextView = binding.txtDate
+        val imgage: ImageView = binding.imPicture
 
     }
 }
