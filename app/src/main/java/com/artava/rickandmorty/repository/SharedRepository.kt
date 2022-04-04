@@ -1,4 +1,4 @@
-package com.artava.rickandmorty
+package com.artava.rickandmorty.repository
 
 import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.CharacterList

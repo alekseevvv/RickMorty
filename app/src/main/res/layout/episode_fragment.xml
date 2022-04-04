@@ -30,13 +30,8 @@
             android:name="com.artava.rickandmorty.ListCharacterFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="70dp"
             app:layoutManager="LinearLayoutManager"
             tools:context=".fragment.EpisodeFragment"
-            tools:layout_conversion_absoluteHeight="661dp"
-            tools:layout_conversion_absoluteWidth="411dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp"
             tools:listitem="@layout/episode_item" />
     </LinearLayout>
 </layout>

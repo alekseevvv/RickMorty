@@ -29,7 +29,6 @@
             android:name="com.artava.rickandmorty.LocationsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"
             app:layoutManager="LinearLayoutManager"
             tools:context=".fragment.LocationsFragment"
             tools:listitem="@layout/episode_item" />

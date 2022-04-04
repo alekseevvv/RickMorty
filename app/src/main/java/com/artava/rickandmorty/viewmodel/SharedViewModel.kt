@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.artava.rickandmorty.SharedRepository
+import com.artava.rickandmorty.repository.SharedRepository
 import com.artava.rickandmorty.model.Character
 import com.artava.rickandmorty.model.CharacterList
 import com.artava.rickandmorty.model.EpisodeList
@@ -34,8 +34,8 @@ class SharedViewModel: ViewModel() {
         }
     }
 
-    private val _allCharacter = MutableLiveData<CharacterList>()
-    val allCharacter : LiveData<CharacterList> = _allCharacter
+    private val _allCharacter = MutableLiveData<CharacterList?>()
+    val allCharacter : LiveData<CharacterList?> = _allCharacter
 
     fun listAllCharacter(){
         viewModelScope.launch {
@@ -55,7 +55,7 @@ class SharedViewModel: ViewModel() {
         viewModelScope.launch {
             val response = repository.getCharacterByName(name)
             if (response!=null)
-                _allCharacter.postValue(response!!)
+                _allCharacter.postValue(response)
         }
     }
 
