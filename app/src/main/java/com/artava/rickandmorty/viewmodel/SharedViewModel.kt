@@ -1,14 +1,12 @@
 package com.artava.rickandmorty.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.artava.rickandmorty.model.*
 import com.artava.rickandmorty.repository.SharedRepository
-import com.artava.rickandmorty.model.Character
-import com.artava.rickandmorty.model.CharacterList
-import com.artava.rickandmorty.model.EpisodeList
-import com.artava.rickandmorty.model.LocationList
 import kotlinx.coroutines.launch
 
 class SharedViewModel: ViewModel() {
@@ -20,10 +18,23 @@ class SharedViewModel: ViewModel() {
     private var _allEpisode = MutableLiveData<EpisodeList?>()
     var allEpisode : LiveData<EpisodeList?> = _allEpisode
 
+    private var _episode = MutableLiveData<List<Episode>?>()
+    var episode : LiveData<List<Episode>?> = _episode
+
+    suspend fun insertCharacter(character: Character, context: Context) =
+        repository.insertCharacter(character, context)
+
     fun getEpisodeByPage(page: Int){
         viewModelScope.launch {
             val response = repository.getEpisodeByPage(page)
             _allEpisode.postValue(response)
+        }
+    }
+
+    fun getEpisodeByName(name: List<Int>){
+        viewModelScope.launch {
+            val response = repository.getEpiscodeByCharacter(name)
+            _episode.postValue(response)
         }
     }
 

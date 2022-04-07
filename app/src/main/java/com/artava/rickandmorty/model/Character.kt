@@ -2,12 +2,13 @@ package com.artava.rickandmorty.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "characters")
 data class Character(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     val id: Int?,
     @ColumnInfo(name = "created")
     val created: String?,
@@ -33,7 +34,6 @@ data class Character(
     @ColumnInfo(name = "url")
     val url: String?
 ) {
-
 
     data class Location(
         val name: String?,

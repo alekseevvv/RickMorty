@@ -25,6 +25,11 @@ class ApiClient(private val ramS: RandMService) {
         return ramS.getEpisodeByPage(page)
     }
 
+    suspend fun getEpisodeByName(name: List<Int>): Response<List<Episode>>{
+        println(name)
+        return ramS.getEpisodeByName(name)
+    }
+
     suspend fun getLocationByPage(page: Int): Response<LocationList>{
         return ramS.getLocationByPage(page)
     }

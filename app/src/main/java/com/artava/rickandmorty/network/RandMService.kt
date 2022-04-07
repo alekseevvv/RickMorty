@@ -31,6 +31,12 @@ interface RandMService {
         @Query("page") page: Int
     ): Response<EpisodeList>
 
+    @GET("episode/{name}")
+    suspend fun getEpisodeByName(
+        @Path("name") name: List<Int>
+    ): Response<List<Episode>>
+
+
     @GET("location/")
     suspend fun getLocationByPage(
         @Query("page") page: Int

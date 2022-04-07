@@ -22,6 +22,9 @@ class ListCharacterFragment : Fragment() {
     var totalList = mutableListOf<Character>()
     lateinit var binding: ListCharacterFragmentBinding
     var numPage = 1
+
+    //private lateinit var noteDatabase: CharacterDB
+
     lateinit var recycler: RecyclerView
     lateinit var adapter: CharacterRecyclerViewAdapter
 
@@ -35,6 +38,8 @@ class ListCharacterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = ListCharacterFragmentBinding.bind(view)
+
+            //noteDatabase = CharacterDB.invoke(requireContext())
 
         adapter = CharacterRecyclerViewAdapter(totalList, requireContext())
         recycler = binding.recyclerV
@@ -51,6 +56,14 @@ class ListCharacterFragment : Fragment() {
         }
 
         adapter.onItemClick = { character ->
+
+           /* val note = character
+            CoroutineScope(Dispatchers.Main).launch {
+                viewModel.insertNote(note,noteDatabase)?.also {
+                    //do action here
+                }
+            }
+*/
             fragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.rick_fragment,

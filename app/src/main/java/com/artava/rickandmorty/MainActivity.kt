@@ -2,6 +2,7 @@ package com.artava.rickandmorty
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.artava.rickandmorty.fragment.EpisodeFragment
 import com.artava.rickandmorty.fragment.ListCharacterFragment
 import com.artava.rickandmorty.fragment.LocationsFragment
@@ -61,6 +62,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    companion object {
+        var instance: MainActivity? = null
+    }
+
 
     override fun onBackPressed() {
         val count: Int = supportFragmentManager.backStackEntryCount

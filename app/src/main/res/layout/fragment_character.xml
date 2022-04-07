@@ -28,6 +28,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/img_icon_small">
 
                 <ImageView
+                    android:id="@+id/btn_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/btn_star" />
+
+                <ImageView
                     android:id="@+id/im_back"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -49,7 +59,6 @@
                     app:layout_constraintVertical_bias="0.0"
                     tools:ignore="MissingClass"
                     tools:layout_conversion_absoluteHeight="200dp"
-                    tools:layout_conversion_absoluteWidth="411dp"
                     tools:src="@tools:sample/avatars" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -69,7 +78,8 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="70dp">
+                android:layout_marginBottom="10dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,31 +91,33 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="134323"
                         android:textColor="@color/white"
                         android:textSize="34sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        />
 
                     <TextView
                         android:id="@+id/tv_alive"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="LKJL:ejwflewf"
-                        android:textSize="24sp"
-                        android:visibility="visible"
-                        tools:visibility="visible" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/tv_location"
                         android:layout_width="411dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text=":LKJDPEFJPV"
                         android:textColor="#EF5350"
                         android:textSize="34sp" />
                 </LinearLayout>
             </ScrollView>
+
+            <include
+                android:id="@+id/ep_list"
+                layout="@layout/episode_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
