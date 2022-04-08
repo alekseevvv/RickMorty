@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -88,6 +89,15 @@ class CharacterDatailsFragment : Fragment() {
 
             binding.tvName.text = responce.full_name.toString()
             binding.tvAlive.text = responce.status
+            if (responce.status == "unknown") {
+                binding.tvAlive.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_gray));
+            }
+            if (responce.status == "Dead") {
+                binding.tvAlive.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_red));
+            }
+            if (responce.status == "Alive") {
+                binding.tvAlive.setTextColor(ContextCompat.getColor(requireContext(), R.color.text_green));
+            }
             binding.tvLocation.text = responce.location?.name
             Picasso.get().load(responce.image).into(binding.imgIcon)
             Picasso.get().load(responce.image).into(binding.imgIconSmall)

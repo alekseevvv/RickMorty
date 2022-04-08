@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.artava.rickandmorty.model.Character
 
 @Database(entities = arrayOf(Character::class), version = 1, exportSchema = false)
+@TypeConverters(Character.LocationConverter::class, Character.ListConverter::class)
 
 abstract class CharacterDB : RoomDatabase() {
     abstract fun characterDao(): CharacterDao
