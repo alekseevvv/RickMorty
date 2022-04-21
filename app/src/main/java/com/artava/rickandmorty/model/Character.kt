@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import java.util.stream.Collectors
 
-@Entity(tableName = "characters")
+@Entity(tableName = "char")
 data class Character(
     @PrimaryKey(autoGenerate = false)
     val id: Int?,

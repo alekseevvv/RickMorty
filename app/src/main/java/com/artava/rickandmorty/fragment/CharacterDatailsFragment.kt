@@ -33,7 +33,7 @@ class CharacterDatailsFragment : Fragment() {
     var listEp = listOf<String>()
     lateinit var thisCharacter: Character
 
-    var chDB = CharacterDB
+    lateinit var chDB : CharacterDB
 
     val viewModel: SharedViewModel by lazy {
         ViewModelProvider(this).get(SharedViewModel::class.java)
@@ -58,6 +58,9 @@ class CharacterDatailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val dao = CharacterDB.getDataseCharacter(this.requireContext()).characterDao()
+
         binding = FragmentCharacterBinding.bind(view)
         adapter = EpisodeRecyclerViewAdapter(totalList)
         recycler = binding.epList.recyclerV
@@ -69,9 +72,8 @@ class CharacterDatailsFragment : Fragment() {
         }
 
         binding.btnStar.setOnClickListener {
-            println("Добавил ${thisCharacter.full_name}")
             CoroutineScope(Dispatchers.Main).launch {
-                viewModel.insertCharacter(thisCharacter, requireContext())
+                viewModel.insertCharacter(thisCharacter, dao)
             }
         }
 

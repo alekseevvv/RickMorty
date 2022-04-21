@@ -7,12 +7,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CharacterDao{
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addCharacter(character: Character){
-    }
+    suspend fun addCharacter(character: Character)
 
-   /* @Query("SELECT * FROM characters ORDER BY name DESC")
+    @Query("SELECT * FROM char ORDER BY name DESC")
     fun getCharacter(): Flow<List<Character>>
 
-    @Delete
-    suspend fun deleteCharacter(character: Character)*/
+    /*@Delete
+   suspend fun deleteCharacter(character: Character)*/
 }

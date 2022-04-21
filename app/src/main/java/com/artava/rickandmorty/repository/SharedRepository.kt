@@ -2,14 +2,19 @@ package com.artava.rickandmorty.repository
 
 import android.content.Context
 import com.artava.rickandmorty.db.CharacterDB
+import com.artava.rickandmorty.db.CharacterDao
 import com.artava.rickandmorty.model.*
 import com.artava.rickandmorty.network.RetrofitHelper
 
 class SharedRepository {
 
-    suspend fun insertCharacter(character: Character, context: Context) =
-        CharacterDB.getDataseCharacter(context).characterDao().addCharacter(character)
+    suspend fun insertCharacter(character: Character, chDao: CharacterDao) {
+            return chDao.addCharacter(character)
+        }
 
+    suspend fun getCharacter(character: Character, chDao: CharacterDao) {
+        return chDao.addCharacter(character)
+    }
 
     suspend fun getCharacterById(characterId: Int): Character? {
         val request = RetrofitHelper.apiClient.getCharacterById(characterId)

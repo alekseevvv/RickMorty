@@ -20,9 +20,9 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/constrain"
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="250dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@+id/img_icon_small"
                 app:layout_constraintTop_toBottomOf="@+id/img_icon_small">
@@ -50,7 +50,7 @@
                 <ImageView
                     android:id="@+id/img_icon"
                     android:layout_width="0dp"
-                    android:layout_height="250dp"
+                    android:layout_height="200dp"
                     android:alpha="0.5"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -65,8 +65,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_icon_small"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -79,11 +79,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/name_background"
+                    android:fontFamily="@font/boringrick"
                     android:gravity="center"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="34sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/img_icon_small"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -96,19 +97,18 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tv_alive"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/rickandmorty"
                         android:gravity="center"
                         android:textSize="24sp"
                         tools:text="live" />
@@ -117,32 +117,36 @@
                         android:id="@+id/tv_location2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/boringrick"
                         android:gravity="start"
                         android:paddingStart="16dp"
                         android:text="Last known location:"
                         android:textColor="@color/text_gray"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         tools:text="Last known location:" />
 
                     <TextView
                         android:id="@+id/tv_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/boringrick"
                         android:gravity="start"
                         android:paddingStart="32dp"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="30sp"
                         tools:text="Last known location:" />
 
                     <TextView
                         android:id="@+id/tv_alive2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/boringrick"
                         android:gravity="start|center_horizontal|center_vertical"
                         android:paddingStart="16dp"
+                        android:paddingBottom="10dp"
                         android:text="Episodes:"
                         android:textColor="@color/text_gray"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
                     <include
                         android:id="@+id/ep_list"

@@ -22,7 +22,7 @@ abstract class CharacterDB : RoomDatabase() {
             if (INSTANCE != null) return INSTANCE!!
             synchronized(this) {
                 INSTANCE = Room
-                    .databaseBuilder(context, CharacterDB::class.java, "chdb")
+                    .databaseBuilder(context, CharacterDB::class.java, "character")
                     .build()
                 return INSTANCE!!
 

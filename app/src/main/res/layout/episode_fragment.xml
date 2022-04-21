@@ -33,5 +33,6 @@
             app:layoutManager="LinearLayoutManager"
             tools:context=".fragment.EpisodeFragment"
             tools:listitem="@layout/episode_item" />
+
     </LinearLayout>
 </layout>
